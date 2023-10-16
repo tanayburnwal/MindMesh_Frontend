@@ -56,7 +56,8 @@ const Form = () => {
             smoker : formData.smoker,
             region : formData.region
         }
-        const res = await axios.post('https://mindmesh-flask-api.onrender.com/api',data);
+        console.log(data)
+        const res = await axios.post('http://127.0.0.1:5000/api',data);
         console.log(res)
     }
     return (

@@ -1,0 +1,21 @@
+.heading_component{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 15px;
+}
+.paragraph{
+    width: 60vw;
+    color: white;
+    margin: 10px 0px;
+}
+.heading{
+    color: white;
+    align-self: flex-start;
+  }
+
+img{
+    width: 60vw;
+}

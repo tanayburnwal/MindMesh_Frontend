@@ -7,6 +7,7 @@ import ciggrets from '../images/ciggrets.jpeg'
 import region from '../images/regiion.gif'
 import axios from 'axios'
 const Form = () => {
+    const [loading, setLoading]  = useState(false)
     const [formData,setFormData] = useState({
         age : 10,
         gender : 'Male',
@@ -15,6 +16,7 @@ const Form = () => {
         smoker : 'No',
         region : 'southwest'
     })
+    const [recievedData,setreceivedData] = useState()
     const setAge = (e)=>{
         setFormData((prev)=>{
             return({...prev,age : parseInt(e.target.value)})
@@ -48,6 +50,7 @@ const Form = () => {
     console.log(formData)
     const handleSubmit = async(e)=>{
         e.preventDefault();
+        setLoading(true)
         const data = {
             age : formData.age,
             gender : formData.gender,
@@ -57,7 +60,9 @@ const Form = () => {
             region : formData.region
         }
         console.log(data)
-        const res = await axios.post('http://127.0.0.1:5000/api',data);
+        const res = await axios.post('https://mindmesh-flask-api.onrender.com/api',data);
+        setreceivedData(res.data);
+        setLoading(false)
         console.log(res)
     }
     return (
@@ -119,6 +124,15 @@ const Form = () => {
                     </option>
                 </select>
                 <button type='submit' className='button'>Predict</button>
+                <div>
+                {loading ? 
+                        <div>calulating the cost......</div>
+                        :
+                        recievedData?
+                        <div>The Estimated money required is {recievedData}</div>:
+                        <div></div>
+                }
+                </div>
             </form>
 
         </div>

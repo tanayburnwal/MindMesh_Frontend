@@ -4,12 +4,17 @@
 }
 
 .app{
+  font-family:  "sans-serif";
   background-color: #0F1116;
   height: 100vh;
   width:  100vw;
   overflow-x: hidden ;
   display: flex;
   flex-direction: column;
+  font-family: 'Kanit', sans-serif;
+font-family: 'Lexend Deca', sans-serif;
+font-family: 'Nunito', sans-serif;
+font-family: 'Paytone One', sans-serif;
 }
 
 
